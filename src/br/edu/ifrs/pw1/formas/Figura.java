@@ -20,7 +20,7 @@ public abstract class Figura {
     }
 
     //Um método abstrato não possui implementação
-    public abstract double calculaArea(double area);
+    public abstract double calculaArea();
 
     @Override
     public String toString() {

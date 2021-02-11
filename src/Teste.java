@@ -1,23 +1,28 @@
-//A classe Math possui vários métodos de classe com várias funcionalidades diferentes.
-// Faça um programa que lê um número com casas decimais e utiliza os 3 métodos usados para arredondar números.
-// Explique com suas palavras a diferença existente entre cada um desses métodos.
-import javax.swing.JOptionPane;
+import br.edu.ifrs.pw1.formas.Figura;
+import br.edu.ifrs.pw1.lados.Quadrado;
+import br.edu.ifrs.pw1.semlados.Circulo;
+import br.edu.ifrs.pw1.util.Cor;
 
 public class Teste {
     public static void main(String[] args) {
-        float numero;
-        numero = Float.parseFloat(JOptionPane.showInputDialog("Digite um número com casas decimais"));
+        //a) deve criar um vetor com 5 posições que aceita objetos das classes Figura, Quadrado e Círculo;
+        Figura[] vetor = new Figura[5];
+        //b) cada objeto criado deve usar um construtor diferente (um objeto é criado com o construtor
+        //com parâmetros e o outro objeto com o sem parâmetros);
+        Cor rgb = new Cor(5, 8, 9);
+        vetor[0] = new Quadrado(rgb);
+        vetor[1] = new Quadrado(rgb, (double) 5);
+        vetor[2] = new Quadrado(rgb, (double) 10);
+        vetor[3] = new Circulo(rgb);
+        vetor[4] = new Circulo(rgb, (double) 8);
 
-        JOptionPane.showMessageDialog(null, "O numero digitado foi :" + numero
-                                    + "\nEsse numero arredondado com round fica: " + Math.round(numero)
-                                    + "\nEsse numero arredondado com ceil fica: " + Math.ceil(numero)
-                                    + "\nEsse numero arredondado com floor fica: " + Math.floor(numero));
-
-        System.exit(0);
-
-        //O metodo round arredonda para cima e retorna um int
-        //O metodo ceil arredonda para cima e retorna um double
-        //O metodo floor arredonda para baixo e retorna um double
+        //c) percorra esse vetor imprimindo o valor das áreas calculadas;
+        for(Figura figura : vetor) {
+            if(figura != null) {
+                System.out.print(
+                        "Area do objeto: " + figura.calculaArea()+"\n");
+            }
+        }
 
     }
 }
